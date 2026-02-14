@@ -95,6 +95,7 @@ cd Bellcorp-Expense-Tracker
 ## Step 2: Backend Setup
 
 cd backend
+
 npm install
 
 ## Start backend server:
@@ -105,13 +106,16 @@ npm run dev
 Open new terminal:
 
 cd frontend
+
 npm install
+
 npm start
 
 ## Step 4: MongoDB Setup
 Ensure MongoDB is running:
 
 *Windows (as Administrator)*
+
 net start MongoDB
 
 ## API Endpoints
