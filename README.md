@@ -78,7 +78,6 @@ JWT for authentication
 bcryptjs for password hashing
 
 ## Installation
-
 ## Prerequisites
 
 Node.js (v14 or higher)
