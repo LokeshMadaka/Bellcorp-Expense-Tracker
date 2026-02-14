@@ -1,9 +1,9 @@
-###Personal Expense Tracker - MERN Stack Application
+### Personal Expense Tracker - MERN Stack Application
 A full-stack expense tracking application built with MongoDB, Express.js, React.js, and Node.js. Users can securely manage their daily finances with features like authentication, transaction management, and data visualization.
 
-###Features
+### Features
 
-##Authentication
+## Authentication
 
 User registration and login with JWT
 
@@ -11,7 +11,7 @@ Protected routes for authenticated users
 
 Password encryption with bcryptjs
 
-##Dashboard
+## Dashboard
 
 View total balance, income, and expenses
 
@@ -21,7 +21,7 @@ Recent transactions preview
 
 Quick add transaction button
 
-##Transaction Management
+## Transaction Management
 
 Add new transactions (income/expense)
 
@@ -33,7 +33,7 @@ Categories: Food, Rent, Transport, Entertainment, Shopping, Utilities, Healthcar
 
 Add notes to transactions
 
-##Transaction Explorer
+## Transaction Explorer
 
 Search transactions by title
 
@@ -43,7 +43,7 @@ Pagination for large datasets
 
 View all transactions in a clean list
 
-##UI Features
+## UI Features
 
 Responsive design for all devices
 
@@ -53,9 +53,9 @@ Loading states and animations
 
 Modern gradient UI with Tailwind CSS
 
-##Tech Stack
+## Tech Stack
 
-##Frontend
+## Frontend
 
 React.js 18
 
@@ -67,7 +67,7 @@ Axios for API calls
 
 React Hot Toast for notifications
 
-##Backend
+## Backend
 
 Node.js with Express.js
 
@@ -77,9 +77,9 @@ JWT for authentication
 
 bcryptjs for password hashing
 
-##Installation
+## Installation
 
-##Prerequisites
+## Prerequisites
 
 Node.js (v14 or higher)
 
@@ -87,50 +87,55 @@ MongoDB installed locally or MongoDB Atlas account
 
 Git
 
-##Step 1: Clone the Repository
+## Step 1: Clone the Repository
 
 git clone https://github.com/LokeshMadaka/Bellcorp-Expense-Tracker.git
 
 cd Bellcorp-Expense-Tracker
 
-##Step 2: Backend Setup
+## Step 2: Backend Setup
 
 cd backend
 npm install
 
-##Start backend server:
+## Start backend server:
 
 npm run dev
 
-##Step 3: Frontend Setup
+## Step 3: Frontend Setup
 Open new terminal:
 
 cd frontend
 npm install
 npm start
 
-##Step 4: MongoDB Setup
+## Step 4: MongoDB Setup
 Ensure MongoDB is running:
 
 *Windows (as Administrator)*
 net start MongoDB
 
-##API Endpoints
+## API Endpoints
 Authentication
 
 POST	/api/auth/register -> Register new user
+
 POST	/api/auth/login	-> Login user
 
-##Transactions
+## Transactions
 Method	Endpoint	Description
 
 GET	/api/transactions	-> Get all transactions (with filters)
+
 GET	/api/transactions/summary	-> Get dashboard summary
+
 POST	/api/transactions	-> Create new transaction
+
 PUT	/api/transactions/:id	-> Update transaction
+
 DELETE	/api/transactions/:id -> Delete transaction
 
-##Usage Guide
+## Usage Guide
 
 Register/Login: Create account or login
 
