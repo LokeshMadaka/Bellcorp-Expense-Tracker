@@ -1,6 +1,11 @@
 ### Personal Expense Tracker - MERN Stack Application
 A full-stack expense tracking application built with MongoDB, Express.js, React.js, and Node.js. Users can securely manage their daily finances with features like authentication, transaction management, and data visualization.
 
+##Project Link:
+
+  https://bellcorp-expense-tracker-six.vercel.app/
+
+
 ### Features
 
 ## Authentication
@@ -94,6 +99,16 @@ cd Bellcorp-Expense-Tracker
 
 ## Step 2: Backend Setup
 
+#create backend/.env
+
+    MONGODB_URI=mongodb+srv://Lokesh:pUz7ptJcWMcGRRbg@cluster0.u2klc5i.mongodb.net/
+    
+    JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+    
+    PORT=5000
+
+Open new terminal:
+
 cd backend
 
 npm install
@@ -103,6 +118,15 @@ npm install
 npm run dev
 
 ## Step 3: Frontend Setup
+
+#Create frontend/.env -> For Local
+
+    REACT_APP_API_URL=http://localhost:5000/api
+
+#Create frontend/.env.production -> For Varcel
+
+    REACT_APP_API_URL=https://bellcorp-expense-tracker-byxd.onrender.com/api
+    
 Open new terminal:
 
 cd frontend
