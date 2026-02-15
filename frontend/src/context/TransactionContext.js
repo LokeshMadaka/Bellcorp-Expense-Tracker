@@ -16,7 +16,7 @@ export const TransactionProvider = ({ children }) => {
     total: 0
   });
 
-  const API_URL = 'https://bellcorp-expense-tracker-byxd.onrender.com/api';
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
   const fetchTransactions = useCallback(async (page = 1, filters = {}) => {
     setLoading(true);

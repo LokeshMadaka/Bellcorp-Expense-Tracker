@@ -10,7 +10,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://your-frontend-url.vercel.app'], // Add your frontend URL
+  origin: ['http://localhost:3000', 'https://bellcorp-expense-tracker-six.vercel.app/'], // Add your frontend URL
   credentials: true
 }));
 app.use(express.json());
