@@ -8,7 +8,7 @@ const transactionRoutes = require('./routes/transactions');
 
 const app = express();
 
-// CORS configuration - UPDATED WITH YOUR VERCEL URL
+
 const allowedOrigins = [
   'http://localhost:3000',
   'https://bellcorp-expense-tracker-six.vercel.app',
@@ -18,7 +18,7 @@ const allowedOrigins = [
 
 const corsOptions = {
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps, curl)
+    
     if (!origin) return callback(null, true);
     
     if (allowedOrigins.indexOf(origin) !== -1) {
@@ -37,7 +37,7 @@ app.options('*', cors(corsOptions));
 
 app.use(express.json());
 
-// Root route
+
 app.get('/', (req, res) => {
   res.json({ 
     message: 'Expense Tracker API',
@@ -46,16 +46,16 @@ app.get('/', (req, res) => {
   });
 });
 
-// Health check
+
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK' });
 });
 
-// Routes
+
 app.use('/api/auth', authRoutes);
 app.use('/api/transactions', transactionRoutes);
 
-// MongoDB connection
+
 const MONGODB_URI = process.env.MONGODB_URI;
 if (!MONGODB_URI) {
   console.error('MONGODB_URI not set');
@@ -65,7 +65,7 @@ if (!MONGODB_URI) {
 mongoose.connect(MONGODB_URI)
   .then(() => {
     console.log('MongoDB connected');
-    const PORT = process.env.PORT || 10000;
+    const PORT = process.env.PORT || 5000;
     app.listen(PORT, '0.0.0.0', () => {
       console.log(`Server running on port ${PORT}`);
     });

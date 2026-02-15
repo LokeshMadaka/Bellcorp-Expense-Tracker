@@ -3,7 +3,7 @@ const auth = require('../middleware/auth');
 const Transaction = require('../models/Transaction');
 const router = express.Router();
 
-// Get all transactions
+
 router.get('/', auth, async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
@@ -12,7 +12,7 @@ router.get('/', auth, async (req, res) => {
     
     const query = { user: req.user.id };
     
-    // Filters
+    
     if (req.query.category && req.query.category !== 'All') {
       query.category = req.query.category;
     }
@@ -47,7 +47,7 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
-// Get summary
+
 router.get('/summary', auth, async (req, res) => {
   try {
     const transactions = await Transaction.find({ user: req.user.id });
@@ -86,7 +86,7 @@ router.get('/summary', auth, async (req, res) => {
   }
 });
 
-// Create transaction
+
 router.post('/', auth, async (req, res) => {
   try {
     const transaction = new Transaction({
@@ -101,7 +101,7 @@ router.post('/', auth, async (req, res) => {
   }
 });
 
-// Update transaction
+
 router.put('/:id', auth, async (req, res) => {
   try {
     let transaction = await Transaction.findById(req.params.id);
@@ -127,7 +127,7 @@ router.put('/:id', auth, async (req, res) => {
   }
 });
 
-// Delete transaction
+
 router.delete('/:id', auth, async (req, res) => {
   try {
     const transaction = await Transaction.findById(req.params.id);
