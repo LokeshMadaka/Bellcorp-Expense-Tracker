@@ -109,13 +109,13 @@ cd Bellcorp-Expense-Tracker
 
 Open new terminal:
 
-cd backend
+    cd backend
 
-npm install
+    npm install
 
 ## Start backend server:
 
-npm run dev
+    npm run dev
 
 ## Step 3: Frontend Setup
 
@@ -129,11 +129,11 @@ npm run dev
     
 Open new terminal:
 
-cd frontend
+    cd frontend
 
-npm install
+    npm install
 
-npm start
+    npm start
 
 ## Step 4: MongoDB Setup
 Ensure MongoDB is running:
