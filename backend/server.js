@@ -8,33 +8,47 @@ const transactionRoutes = require('./routes/transactions');
 
 const app = express();
 
-// Middleware
-app.use(cors({
-  origin: ['http://localhost:3000', 'https://bellcorp-expense-tracker-six.vercel.app/'], // Add your frontend URL
-  credentials: true
-}));
+// CORS configuration - UPDATED WITH YOUR VERCEL URL
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://bellcorp-expense-tracker-six.vercel.app',
+  'https://bellcorp-expense-tracker-six.vercel.app/login',
+  'https://bellcorp-expense-tracker-six.vercel.app/dashboard'
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps, curl)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      console.log('Blocked origin:', origin);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+
 app.use(express.json());
 
-// Root route - THIS WILL FIX THE 404 ERROR
+// Root route
 app.get('/', (req, res) => {
   res.json({ 
-    message: 'Expense Tracker API is running',
-    status: 'active',
-    endpoints: {
-      health: '/api/health',
-      auth: '/api/auth',
-      transactions: '/api/transactions'
-    }
+    message: 'Expense Tracker API',
+    status: 'running',
+    frontend: 'https://bellcorp-expense-tracker-six.vercel.app'
   });
 });
 
-// Health check route
+// Health check
 app.get('/api/health', (req, res) => {
-  res.json({ 
-    status: 'OK', 
-    message: 'Server is running',
-    timestamp: new Date().toISOString()
-  });
+  res.json({ status: 'OK' });
 });
 
 // Routes
@@ -43,38 +57,20 @@ app.use('/api/transactions', transactionRoutes);
 
 // MongoDB connection
 const MONGODB_URI = process.env.MONGODB_URI;
-
 if (!MONGODB_URI) {
-  console.error('❌ MONGODB_URI environment variable is not set');
+  console.error('MONGODB_URI not set');
   process.exit(1);
 }
 
-console.log('Connecting to MongoDB...');
-
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(MONGODB_URI)
   .then(() => {
-    console.log('✅ MongoDB connected successfully');
-    
-    const PORT = process.env.PORT || 5000;
+    console.log('MongoDB connected');
+    const PORT = process.env.PORT || 10000;
     app.listen(PORT, '0.0.0.0', () => {
-      console.log(`🚀 Server running on port ${PORT}`);
+      console.log(`Server running on port ${PORT}`);
     });
   })
   .catch(err => {
-    console.error('❌ MongoDB connection error:', err);
+    console.error('MongoDB error:', err);
     process.exit(1);
   });
-
-// Handle uncaught exceptions
-process.on('uncaughtException', (err) => {
-  console.error('Uncaught Exception:', err);
-  process.exit(1);
-});
-
-process.on('unhandledRejection', (err) => {
-  console.error('Unhandled Rejection:', err);
-  process.exit(1);
-});
