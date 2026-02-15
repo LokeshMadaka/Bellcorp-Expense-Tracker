@@ -25,7 +25,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // MongoDB connection
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/expense-tracker';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://Lokesh:pUz7ptJcWMcGRRbg@cluster0.u2klc5i.mongodb.net/';
 
 mongoose.connect(MONGODB_URI)
   .then(() => {
