@@ -5,6 +5,10 @@ A full-stack expense tracking application built with MongoDB, Express.js, React.
 
   https://bellcorp-expense-tracker-six.vercel.app/
 
+## Video Link:
+
+  https://drive.google.com/file/d/1DlCHjocnGvQZoajhgePey1rR3rqOs-U2/view?usp=sharing
+
 
 ### Features
 
@@ -101,7 +105,7 @@ cd Bellcorp-Expense-Tracker
 
 #### create backend/.env
 
-    MONGODB_URI=mongodb+srv://Lokesh:pUz7ptJcWMcGRRbg@cluster0.u2klc5i.mongodb.net/
+    MONGODB_URI=mongodb+srv://username:password@cluster0.u2klc5i.mongodb.net/
     
     JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
     
@@ -125,7 +129,7 @@ cd Bellcorp-Expense-Tracker
 
 ### Create frontend/.env.production -> For Varcel
 
-    REACT_APP_API_URL=https://bellcorp-expense-tracker-byxd.onrender.com/api
+    REACT_APP_API_URL=https://bellcorp-expense-tracker-byxd.onrender.com/api // Use your Backen Url
     
 ### Open new terminal:
 
